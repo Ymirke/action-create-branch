@@ -35,9 +35,14 @@ export async function createBranch(
 function githubToken(): string {
   const token = process.env.GITHUB_TOKEN;
 
+  const length = (token && token.length) || 'no length';
+
   if (!token) {
     throw ReferenceError(
-      `No token defined in the environment variables, token found: ${process.env.GITHUB_TOKEN}`
+      `No token defined in the environment variables. \n
+      Token: ${token} \n
+      typeof = ${typeof token} \n
+      length = ${length}`
     );
   }
 
