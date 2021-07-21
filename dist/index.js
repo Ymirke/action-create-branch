@@ -8403,11 +8403,9 @@ function createBranch(github, context, branch) {
 exports.createBranch = createBranch;
 function githubToken() {
     const token = process.env.GITHUB_TOKEN;
-    console.log('-- DEBUG ---');
-    console.log(process.env.GITHUB_TOKEN);
-    console.log('-- DEBUG ---');
-    if (!token)
-        throw ReferenceError('No token defined in the environment variables');
+    if (!token) {
+        throw ReferenceError(`No token defined in the environment variables, token found: ${process.env.GITHUB_TOKEN}`);
+    }
     return token;
 }
 
