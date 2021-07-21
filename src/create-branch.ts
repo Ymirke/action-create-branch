@@ -30,6 +30,11 @@ export async function createBranch(github: any, context: Context, branch: string
 
 function githubToken(): string {
   const token = process.env.GITHUB_TOKEN;
+  
+  console.log('-- DEBUG ---');
+  console.log(process.env.GITHUB_TOKEN);
+  console.log('-- DEBUG ---');
+
   if (!token)
     throw ReferenceError('No token defined in the environment variables');
   return token;
